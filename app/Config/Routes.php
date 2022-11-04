@@ -17,7 +17,7 @@ if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Main');
+$routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -26,7 +26,7 @@ $routes->setAutoRoute(true);
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
+
 
 /*
  * --------------------------------------------------------------------
@@ -36,8 +36,12 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-// $routes->get('/', 'Home::index');
-
+$routes->get('/', 'Home::index');
+$routes->get('sobre', 'Home::sobre');
+$routes->get('cliente', 'Cliente\Cliente::index');
+$routes->get('fornecedor', 'Fornecedor\Fornecedor::index');
+$routes->get('funcionario', 'Funcionario\Funcionario::index');
+$routes->get('produto', 'Produto\Produto::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
